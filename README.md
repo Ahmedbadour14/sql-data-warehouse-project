@@ -1,144 +1,90 @@
-Data Warehouse & Analytics Portfolio Project
-An end-to-end modern Data Warehouse and Business Intelligence solution designed to consolidate disparate source systems (ERP & CRM), perform robust data cleaning and transformations, and model analytical datasets into a Star Schema to deliver actionable business insights.
+# Data Warehouse & Analytics Portfolio Project
 
-🏗️ Architecture Overview
-This project implements the Medallion Architecture pattern using SQL Server to structure data processing across three distinct stages:
+An end-to-end Data Warehouse and Business Intelligence solution designed to consolidate disparate source systems (ERP & CRM), perform data transformations, and model analytical datasets into a Star Schema.
 
-[ ERP / CRM CSV Sources ]
-           │
-           ▼
-┌───────────────────────┐
-│     Bronze Layer      │  --> Raw data ingestion (as-is staging tables)
-└───────────────────────┘
-           │
-           ▼
-┌───────────────────────┐
-│     Silver Layer      │  --> Cleansing, standardization, missing value handling & deduplication
-└───────────────────────┘
-           │
-           ▼
-┌───────────────────────┐
-│      Gold Layer       │  --> Star Schema data modeling (Fact & Dimension views for analytics)
-└───────────────────────┘
-           │
-           ▼
-[ BI & SQL Analytics Reports ]
-Bronze Layer: Ingests raw data directly from ERP and CRM CSV files into SQL Server without structural modifications.
+---
 
-Silver Layer: Cleanses, standardizes data types, handles invalid entries, and normalizes key columns to prepare clean tables.
+## 🏗️ Architecture Overview
 
-Gold Layer: Models data into a consumption-ready Star Schema with dimension and fact structures optimized for analytical queries.
+This project implements the **Medallion Architecture** pattern using SQL Server:
 
-🛠️ Tech Stack & Skills
-Database Engine: Microsoft SQL Server
+* **Bronze Layer:** Ingests raw data directly from ERP and CRM CSV files into staging tables without modifications.
+* **Silver Layer:** Cleanses data, standardizes data types, handles invalid entries, and normalizes key columns.
+* **Gold Layer:** Models business-ready data into a **Star Schema** (Fact & Dimension tables) optimized for analytics.
 
-Development Environment: SQL Server Management Studio (SSMS)
+**Pipeline Flow:**
+`Raw CSV Files` ➔ `Bronze (Raw Staging)` ➔ `Silver (Cleansed)` ➔ `Gold (Star Schema)` ➔ `Power BI / SQL Analytics`
 
-Design & Diagramming: Draw.io (Data Flow, Architecture, and Star Schema ERD)
+---
 
-Version Control: Git & GitHub
+## 🛠️ Tech Stack & Skills
 
-Core Competencies:
+* **Database Engine:** Microsoft SQL Server
+* **Development Environment:** SQL Server Management Studio (SSMS)
+* **Modeling & Design:** Draw.io (ERD & Architecture Diagrams)
+* **Version Control:** Git & GitHub
+* **Core Skills:** ETL Pipelines, Data Modeling, Star Schema, SQL Transformations, Analytical Reporting
 
-ETL / ELT Pipeline Design
+---
 
-Data Cleansing & Transformation
+## 🚀 Project Specifications
 
-Dimensional Modeling (Star Schema: Fact & Dimension tables)
+### 1. Data Engineering
+* **Source Systems:** Integration of ERP (orders and transactions) and CRM (customer profiles).
+* **Data Cleansing:** Handling nulls, standardizing date formats, removing duplicates, and key mapping.
+* **Data Integration:** Unified dimensions with surrogate keys to connect disparate datasets.
 
-Advanced SQL (Window Functions, CTEs, Aggregations, Stored Procedures, Views)
+### 2. Analytics & Reporting
+* **Customer Insights:** Top-tier customer identification, regional sales, and retention rates.
+* **Product Performance:** Revenue drivers, volume by category, and margin analysis.
+* **Sales Trends:** Monthly revenue trajectory and average order value (AOV).
 
-Business Performance & Exploratory Data Analysis (EDA)
+---
 
-🚀 Project Specifications
-1. Data Engineering (Warehouse Implementation)
-Source Systems: Two internal systems representing ERP (sales transactions, order details) and CRM (customer profiles, regional data).
+## 📂 Repository Structure
 
-Data Cleansing: Handling null values, correcting inconsistent categorical naming, standardizing date formats, and filtering invalid customer records.
-
-Data Integration: Unifying customer and product data across systems with surrogate keys and unified dimension structures.
-
-Scope: Current-state analytical snapshot optimization.
-
-2. Business Intelligence & Analytics
-Analytical queries in the Gold Layer address key commercial questions:
-
-Customer Analysis: Identifying high-value customer segments, repeat purchase rates, and geographical distribution.
-
-Product Performance: Tracking top-selling products, category contribution margins, and low-velocity inventory.
-
-Sales Trends: Calculating monthly revenue growth, seasonality patterns, and average order values (AOV).
-
-📂 Repository Structure
-Plaintext
+```text
 data-warehouse-project/
-│
-├── datasets/                           # Source datasets (ERP and CRM CSV files)
-│   ├── erp/
-│   └── crm/
-│
-├── docs/                               # Architecture diagrams and specifications
-│   ├── data_architecture.drawio        # End-to-end data pipeline diagram
-│   ├── data_models.drawio              # Star Schema entity relationship diagram (ERD)
-│   ├── data_flow.drawio                # ETL data flow breakdown
-│   ├── data_catalog.md                 # Column descriptions, schemas, and metadata
-│   └── naming-conventions.md           # Database and script naming standards
-│
+├── datasets/                           # Source ERP and CRM CSV files
+├── docs/                               # Diagrams and data catalogs
+│   ├── data_architecture.drawio
+│   ├── data_models.drawio
+│   └── data_catalog.md
 ├── scripts/                            # SQL pipeline scripts
-│   ├── bronze/                         # DDL & Bulk Ingestion scripts
-│   │   ├── ddl_bronze.sql
-│   │   └── proc_load_bronze.sql
-│   ├── silver/                         # Cleaning & Transformation procedures
-│   │   ├── ddl_silver.sql
-│   │   └── proc_load_silver.sql
-│   └── gold/                           # Dimensional Modeling (Views & Facts)
-│       ├── ddl_gold.sql
-│       └── analytical_queries.sql
-│
-├── tests/                              # Data quality and validation tests
-│   └── data_quality_checks.sql
-│
+│   ├── bronze/                         # Ingestion & staging scripts
+│   ├── silver/                         # Cleaning & transformation procedures
+│   └── gold/                           # Star Schema views and fact tables
+├── tests/                              # Data quality assurance tests
 ├── .gitignore
 ├── LICENSE
 └── README.md
-⚙️ Setup & Execution Guide
-Prerequisites
-Microsoft SQL Server (Developer or Express Edition)
+```
+## ⚙️ Setup & Execution Guide
 
-SQL Server Management Studio (SSMS)
-
-Git installed locally
-
-Step-by-Step Installation
-Clone the Repository
-
-Bash
-git clone https://github.com/your-username/data-warehouse-project.git
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/your-username/data-warehouse-project.git](https://github.com/your-username/data-warehouse-project.git)
 cd data-warehouse-project
-Initialize Database
-
-Open SSMS and create a new database:
+```
+2. Initialize Database
+Open SSMS and run:
 
 SQL
 CREATE DATABASE DataWarehouse;
 GO
 USE DataWarehouse;
 GO
-Deploy Schemas & Pipelines
+3. Execute Pipeline Scripts
+Run the scripts sequentially:
 
-Execute scripts sequentially:
+scripts/bronze/ to create staging tables and load raw files.
 
-scripts/bronze/ddl_bronze.sql then scripts/bronze/proc_load_bronze.sql
+scripts/silver/ to execute transformation and validation procedures.
 
-scripts/silver/ddl_silver.sql then scripts/silver/proc_load_silver.sql
+scripts/gold/ to build analytical views and star schemas.
 
-scripts/gold/ddl_gold.sql
-
-Verify Pipeline & Run Analytics
-
-Run validation tests in tests/data_quality_checks.sql.
-
-Execute analytical queries located in scripts/gold/analytical_queries.sql to generate business insights.
+4. Run Analytics
+Execute analytical queries in scripts/gold/ to view business metrics.
 
 👤 Author
 Ahmed Badour
@@ -146,8 +92,6 @@ Ahmed Badour
 GitHub: https://github.com/Ahmedbadour14
 
 LinkedIn: www.linkedin.com/in/ahmed-badour-
-
-Portfolio / Contact: ahmed.badour2005@gmail.com
 
 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
