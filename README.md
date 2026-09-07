@@ -7,6 +7,7 @@ An end-to-end modern Data Warehouse and Business Intelligence solution designed 
 ## 🏗️ Architecture Overview
 
 This project implements the **Medallion Architecture** pattern using Microsoft SQL Server across three distinct layers:
+<img width="1057" height="545" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/bddcd2a9-fc72-4b71-ad60-686a4764fd09" />
 
 * **Bronze Layer:** Stores raw data as-is from source systems. Ingests raw CSV files (ERP & CRM) directly into staging database tables.
 * **Silver Layer:** Cleanses, standardizes, and normalizes the data. Resolves data quality issues, handles missing values, and prepares structured tables.
@@ -21,6 +22,7 @@ This project implements the **Medallion Architecture** pattern using Microsoft S
 
 * **Database Engine:** Microsoft SQL Server
 * **Development GUI:** SQL Server Management Studio (SSMS)
+* **Project Management & Tracking:** Notion
 * **Architecture & ERD Design:** Draw.io
 * **Version Control:** Git & GitHub
 * **Core Competencies:**
@@ -29,6 +31,14 @@ This project implements the **Medallion Architecture** pattern using Microsoft S
   * Dimensional Modeling (Star Schema: Fact & Dimension tables)
   * Advanced SQL (Stored Procedures, CTEs, Window Functions, Views)
   * Exploratory Data Analysis & Business Performance Reporting
+
+---
+
+## 📋 Project Planning & Tracking
+
+The end-to-end project lifecycle, execution phases, and task backlogs are systematically documented and tracked on Notion:
+
+* 📌 **[Notion Project Board & Execution Roadmap](https://app.notion.com/p/SQL-Data-Warehouse-Project-3d39ffd7839180c79fb9ec25f0ed3d13?source=copy_link)** — Detailed breakdown of project phases, data engineering requirements, and analytics tasks.
 
 ---
 
@@ -83,7 +93,7 @@ data-warehouse-project/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Ahmedbadour14/data-warehouse-project.git
+git clone [https://github.com/Ahmedbadour14/data-warehouse-project.git](https://github.com/Ahmedbadour14/data-warehouse-project.git)
 cd data-warehouse-project
 ```
 
